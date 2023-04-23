@@ -1,8 +1,9 @@
 const express = require("express")
 const app = express()
 const PORT = 3000
-
+const cores = require('cors')
 app.use(express.static('public'))
+app.use(cors())
 
 singers = {
     "sontungmtp" : {
@@ -36,6 +37,6 @@ app.get('/api/:singerName', (req,res) => {
 })
 
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Listen on Port number ${PORT}`)
 })
